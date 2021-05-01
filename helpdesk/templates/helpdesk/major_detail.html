@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>create Major PAGE</h1>
+   
+    <div class="max-w-lg mx-auto">
+        <a  href="/">Go back </a>
+        <div >
+            <h1 >Major Detalis:</h1>
+        </div>
+        
+
+           
+               {% for Ma_dis in ma_dis %}
+    <div style="background-color: aquamarine;font-size: 15pt;">
+               Name :{{Ma_dis.first_name}} {{Ma_dis.last_name}}<br>
+               Region: {{Ma_dis.region}}<br>
+               Citis: {{Ma_dis}} test<br>
+            </div>
+            <a href="{% url 'helpdesk:major-update' Ma_dis.pk %}">UPDATE</a>
+            <a href="{% url 'helpdesk:major-delete' Ma_dis.pk %}">DELETE</a>
+               {% endfor %}
+            
+        
+    </div>
+    <p>This is a template</p>
+{% endblock %} 

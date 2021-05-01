@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>create Major PAGE</h1>
+   
+    <div class="max-w-lg mx-auto">
+        <a  href="/">Go back </a>
+        <div >
+            <h1 >Major List :</h1>
+        </div>
+        
+
+           
+               {% for Ma_dis in ma_dis %}
+    <div style="background-color: aquamarine;padding-left: 5%;font-size: 40pt;">
+        <a href="{% url 'helpdesk:major-detail' Ma_dis.pk %}"> {{Ma_dis}} </a>  
+        
+            </div>
+               {% endfor %}
+            
+        
+    </div>
+    <p>This is a template</p>
+{% endblock %} 

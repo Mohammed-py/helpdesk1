@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>create Major PAGE</h1>
+   
+    <div class="max-w-lg mx-auto">
+        <a  href="/">Go back </a>
+        <div >
+            <h1 >Are you sure you want to delete?</h1>
+        </div>
+        <form method="post" >
+            {% csrf_token %}
+            <table>
+                {{ form }}
+            </table>
+
+            <button type='submit'>
+                Delete
+            </button>
+        </form>
+    </div>
+    <p>This is a template</p>
+{% endblock %} 
