@@ -48,23 +48,33 @@
         <li class="nav-item">
           <a class="nav-link" href="#">
             <i class="fa fa-bell">
-              <span class="badge badge-info">11</span>
+              <span class="badge badge-info">33</span>
             </i>
             Test
           </a>
         </li>
+
+
         <li class="nav-item">
           <a class="nav-link" href="#">
             <i class="fa fa-globe">
               <span class="badge badge-success">11</span>
             </i>
-            Test
+            You are Logged in as: {{ request.user.username }}
           </a>
+          <button herf="{% url 'landing-page' %}" class="btn btn-outline-success my-2 my-sm-0" type="submit">LOGOUT</button>
         </li>
+
+
+
       </ul>
+
+      <!--
       <form class="form-inline my-2 my-lg-0">
         <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
       </form>
+      -->
+
     </div>
   </nav>

@@ -1,7 +1,10 @@
 from django import forms
 from .models import Sub_dis, City,  Ma_dis
+from django.contrib.auth.forms import UserCreationForm, UsernameField
+from django.contrib.auth import get_user_model
 
 
+User = get_user_model()
 
 
 class MajorForm(forms.ModelForm):
@@ -27,4 +30,8 @@ class sub_disForm(forms.ModelForm):
         '''
      ############################################################################
 
-        
+class CustomUserCreationForm(UserCreationForm):
+    class Meta:
+        model = User
+        fields = ("username",)
+        field_classes = {'username': UsernameField}

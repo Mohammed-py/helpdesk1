@@ -1,11 +1,21 @@
 from django.shortcuts import render, redirect, reverse
-
+from django.contrib.auth.forms import UserCreationForm
+from django.views import generic
 from django.views.generic import ListView, CreateView, UpdateView, TemplateView, DetailView, DeleteView
 from django.urls import reverse_lazy
 
 from django.http import HttpResponse
 from .models import  City, Ma_dis, Sub_dis, Pos
-from .form import  sub_disForm, MajorForm
+from .form import  sub_disForm, MajorForm, CustomUserCreationForm
+
+#SignUP View::
+class SignupView(generic.CreateView):
+    template_name = "registration/signup.html"
+    form_class = CustomUserCreationForm
+    
+    def get_success_url(self):
+        return reverse("login")
+
 
 
 class LandingPageView(TemplateView):
