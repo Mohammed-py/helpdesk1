@@ -133,5 +133,7 @@ STATIC_ROOT = "static_root"
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+AUTH_USER_MODEL = 'helpdesk.User'
 
 LOGIN_REDIRECT_URL = "/helpdesk"
+LOGIN_URL ="/login"

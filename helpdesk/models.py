@@ -1,4 +1,28 @@
 from django.db import models
+from django.contrib.auth.models import AbstractUser
+
+
+
+
+
+
+class User (AbstractUser):
+    pass
+
+class UserProfile(models.Model):
+   user = models.OneToOneField(User, on_delete=models.CASCADE)
+   def __str__(self):
+     return self.user.username
+
+
+class Agent(models.Model):
+  user = models.OneToOneField(User, on_delete=models.CASCADE)
+  organisation = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
+  def __str__(self):
+    return self.user.email
+
+
+
 
 # Create your models here.
 #class Region(models.Model):
@@ -11,6 +35,8 @@ from django.db import models
 
   #  def __str__(self):
    #   return self.name
+
+
 
 
 class City(models.Model):
@@ -44,12 +70,7 @@ class Sub_dis(models.Model):
     last_name = models.CharField(max_length=20)
     Ma_dis = models.ForeignKey("Ma_dis", on_delete=models.SET_NULL , blank=True, null= True)
     city = models.ForeignKey("City", on_delete=models.SET_NULL , blank=True, null= True)
-    '''
-    def save(self, *args, **kwargs):
-       
-        Region = Ma_dis.region
-        super(self).save(*args, **kwargs)
-        '''
+   
 
 
     def __str__(self):

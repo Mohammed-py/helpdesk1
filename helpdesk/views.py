@@ -2,11 +2,16 @@ from django.shortcuts import render, redirect, reverse
 from django.contrib.auth.forms import UserCreationForm
 from django.views import generic
 from django.views.generic import ListView, CreateView, UpdateView, TemplateView, DetailView, DeleteView
-from django.urls import reverse_lazy
+from django.contrib.auth.mixins import LoginRequiredMixin
+
 
 from django.http import HttpResponse
 from .models import  City, Ma_dis, Sub_dis, Pos
 from .form import  sub_disForm, MajorForm, CustomUserCreationForm
+
+
+
+
 
 #SignUP View::
 class SignupView(generic.CreateView):
@@ -60,7 +65,7 @@ def major_create (request):
 
 
 # liST ----------------------------------------------------------------------
-class Ma_disListView(ListView):
+class Ma_disListView(LoginRequiredMixin, ListView):
     template_name = "helpdesk/major_list.html"
     queryset = Ma_dis.objects.all()
     context_object_name = "ma_dis"
